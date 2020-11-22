@@ -58,7 +58,7 @@ function getPasswordCriteria() {
 function generatePassword() 
 {
   passwordLength = prompt(`Please enter a length between ${minPasswordLength} and ${maxPasswordLength}`);
-  // console.table(passwordLength);
+  console.table(passwordLength);
   // console.table(isNaN(passwordLength));
   //keep asking for a password length if length is less than 8 or greater than 128 or is not even a number
   while (passwordLength < minPasswordLength || passwordLength > maxPasswordLength || isNaN(passwordLength) == true) 
