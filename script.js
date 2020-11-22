@@ -13,6 +13,8 @@ var useSpecialChars = true;
 var useNumericChars = true;
 var useUppercaseChars = true;
 var useLowerCaseChars = true;
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -26,6 +28,9 @@ function writePassword() {
 }
 
 function getPasswordCriteria() {
+
+  charLists.length = 0; //make sure array is empty before pushing onto it 
+
   useSpecialChars = confirm("Would you like to use special characters?");
   useNumericChars = confirm("Would you like to use numerical characters?");
   useUppercaseChars = confirm("Would you like to use uppercase characters?");
@@ -36,18 +41,18 @@ function getPasswordCriteria() {
   //console.log(useUppercaseChars);
   //console.log(useLowerCaseChars);
   
-  if (useSpecialChars == true) {
+  if (useSpecialChars == true) 
     charLists.push(specialChars);
-  }
-  if (useNumericChars == true) {
+  
+  if (useNumericChars == true) 
     charLists.push(numericChars);
-  }
-  if (useUppercaseChars == true) {
+  
+  if (useUppercaseChars == true) 
     charLists.push(upperChars);
-  }
-  if (useLowerCaseChars == true) {
+  
+  if (useLowerCaseChars == true) 
     charLists.push(lowerChars);
-  }
+  
 }
 
 function generatePassword() 
@@ -72,6 +77,21 @@ function generatePassword()
     alert("hahahahahaha lets try this again...")
     getPasswordCriteria();
   }
+
+  var password = "";
+
+  for(var i = 0; i < passwordLength; i++)
+  {
+    var index1 = Math.floor((Math.random()) * charLists.length);
+    var index2 = Math.floor((Math.random()) * charLists[index1].length);
+
+    //console.log(index1, index2);
+    //console.log("----------------------------")
+
+    password += charLists[index1][index2];
+  } 
+
+  return password;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
