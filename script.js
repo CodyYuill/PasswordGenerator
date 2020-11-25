@@ -57,13 +57,13 @@ function getPasswordCriteria() {
 
 function generatePassword() 
 {
-  passwordLength = prompt(`Please enter a length between ${minPasswordLength} and ${maxPasswordLength}`);
+  passwordLength = prompt(`Please enter your desired password length between ${minPasswordLength} and ${maxPasswordLength}`);
   console.table(passwordLength);
   // console.table(isNaN(passwordLength));
   //keep asking for a password length if length is less than 8 or greater than 128 or is not even a number
   while (passwordLength < minPasswordLength || passwordLength > maxPasswordLength || isNaN(passwordLength) == true) 
   {
-    passwordLength = prompt(`Please enter a length between ${minPasswordLength} and ${maxPasswordLength}`);
+    passwordLength = prompt(`Please enter your desired password length between ${minPasswordLength} and ${maxPasswordLength}`);
     // console.table(passwordLength);
     // console.table(isNaN(passwordLength));
   }
@@ -74,7 +74,7 @@ function generatePassword()
 
   while (charLists.length == 0) 
   {
-    alert("hahahahahaha lets try this again...")
+    alert("Must have at least one of the previous criteria")
     getPasswordCriteria();
   }
 
