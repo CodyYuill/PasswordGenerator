@@ -82,13 +82,19 @@ function generatePassword()
 
   for(var i = 0; i < passwordLength; i++)
   {
-    var index1 = Math.floor((Math.random()) * charLists.length);
-    var index2 = Math.floor((Math.random()) * charLists[index1].length);
+    if(i < charLists.length)
+    {
+      var index2 = Math.floor((Math.random()) * charLists[i].length);
 
-    //console.log(index1, index2);
-    //console.log("----------------------------")
+      password += charLists[i][index2];
+    }
+    else
+    {
+      var index1 = Math.floor((Math.random()) * charLists.length);
+      var index2 = Math.floor((Math.random()) * charLists[index1].length);
 
-    password += charLists[index1][index2];
+      password += charLists[index1][index2];
+    }
   } 
 
   return password;
